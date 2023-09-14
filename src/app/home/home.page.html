@@ -1,0 +1,18 @@
+<ion-card>
+  <ion-card-content class="dark-bg">
+    <div class="welcome-container">
+      <div class="welcome-header" [@titleAnimation]="animationState">
+        ¡Bienvenido, {{ nombreUsuario }}!
+      </div>
+
+      <div class="welcome-body">
+        <ion-icon class="welcome-icon" name="school-outline"></ion-icon>
+        <p class="welcome-text">Explora tu camino hacia el éxito académico.</p>
+      </div>
+      <div class="welcome-footer">
+        <ion-button expand="full" color="primary">Comenzar</ion-button>
+        <ion-button [routerLink]="['/login']">Volver</ion-button>
+      </div>
+    </div>
+  </ion-card-content>
+</ion-card>
