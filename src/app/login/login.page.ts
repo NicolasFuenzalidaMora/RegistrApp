@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +11,7 @@ import { NavController } from '@ionic/angular';
 export class LoginPage implements OnInit {
   formulariologin: FormGroup;
 
-  constructor(public fb: FormBuilder, public alertController: AlertController, private router: Router) {
+  constructor(public fb: FormBuilder, public alertController: AlertController, public navCtrl: NavController, private router: Router) {
     this.formulariologin = this.fb.group({
       nombre: new FormControl('', Validators.required),
       contraseña: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]),
@@ -27,7 +26,7 @@ export class LoginPage implements OnInit {
   }
 
   async ingresar() {
-    var f = this.formulariologin.value;
+    const f = this.formulariologin.value;
 
     if (!f.nombre || !f.contraseña) {
       const alert = await this.alertController.create({
@@ -36,6 +35,7 @@ export class LoginPage implements OnInit {
         buttons: ['Aceptar'],
       });
       await alert.present();
+      this.formulariologin.reset(); // Limpiar los campos si hay un error
       return;
     }
 
@@ -46,18 +46,25 @@ export class LoginPage implements OnInit {
         buttons: ['Aceptar'],
       });
       await alert.present();
+      this.formulariologin.reset(); // Limpiar los campos si hay un error
       return;
     }
 
-    var usuarioString = localStorage.getItem('usuario');
+    const nombreUsuario = f.nombre; // Agrega la extensión de correo electrónico
 
-    if (usuarioString !== null) {
-      var usuario = JSON.parse(usuarioString);
+    const usuariosString = localStorage.getItem('usuarios');
 
-      if (usuario.nombre === f.nombre && usuario.contraseña === f.contraseña) {
+    if (usuariosString !== null) {
+      const usuarios = JSON.parse(usuariosString);
+
+      // Comprueba si hay un usuario con el nombre de usuario y la contraseña ingresados
+      const usuario = usuarios.find((u: Usuario) => u.nombre === nombreUsuario && u.contraseña === f.contraseña);
+
+      if (usuario) {
         console.log('Ingresado');
         localStorage.setItem('ingresado', 'true');
-        this.router.navigate(['/home']);
+        localStorage.setItem('nombreUsuario', nombreUsuario); // Almacena el nombre del usuario si el inicio de sesión fue exitoso
+        this.navCtrl.navigateRoot('/home');
       } else {
         const alert = await this.alertController.create({
           header: 'Usuario inválido',
@@ -65,7 +72,17 @@ export class LoginPage implements OnInit {
           buttons: ['Aceptar'],
         });
         await alert.present();
+        this.formulariologin.reset(); // Limpia los campos si hay un error
       }
+      
+    } else {
+      const alert = await this.alertController.create({
+        header: 'Usuario inválido',
+        message: 'El nombre de usuario y/o contraseña son incorrectos',
+        buttons: ['Aceptar'],
+      });
+      await alert.present();
+      this.formulariologin.reset(); // Limpiar los campos si hay un error
     }
   }
 
@@ -108,4 +125,9 @@ export class LoginPage implements OnInit {
     });
     await alert.present();
   }
+}
+
+interface Usuario {
+  nombre: string;
+  contraseña: string;
 }

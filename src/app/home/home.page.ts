@@ -11,7 +11,6 @@ import { trigger, style, animate, transition } from '@angular/animations';
         style({ transform: 'translateX(-50%)' }),
         animate('4s ease-in-out', style({ transform: 'translateX(50%)' })),
         animate('4s ease-in-out', style({ transform: 'translateX(-50%)' })),
-       
         animate('4s ease-in-out', style({ transform: 'translateX(0,5%)' })),
       ]),
     ]),
@@ -24,10 +23,12 @@ export class HomePage implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    const usuarioString = localStorage.getItem('usuario');
-    if (usuarioString !== null) {
-      const usuario = JSON.parse(usuarioString);
-      this.nombreUsuario = usuario.nombre;
+    // Recupera el nombre del usuario del almacenamiento local
+    const nombreUsuarioGuardado = localStorage.getItem('nombreUsuario');
+  
+    if (nombreUsuarioGuardado) {
+      this.nombreUsuario = nombreUsuarioGuardado; // Establece el nombre del usuario en la variable
     }
   }
+  
 }
