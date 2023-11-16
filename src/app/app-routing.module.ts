@@ -17,11 +17,6 @@ const routes: Routes = [
     canActivate: [NoIngresadoGuard]
   },
   {
-    path: 'registrar',
-    loadChildren: () => import('./registrar/registrar.module').then( m => m.RegistrarPageModule),
-    canActivate: [NoIngresadoGuard]
-  },
-  {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
     canActivate: [IngresadoGuard]
