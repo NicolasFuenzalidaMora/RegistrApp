@@ -1,3 +1,5 @@
+<!-- login.page.html -->
+
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
     <ion-title>RegistrAPP</ion-title>
@@ -18,23 +20,34 @@
     <ion-card-content>
       <form [formGroup]="formulariologin">
         <ion-item>
-          <ion-label position="floating">Nombre</ion-label>
-          <ion-input formControlName="nombre"></ion-input>
+          <ion-label position="floating">Correo Electrónico</ion-label>
+          <ion-input formControlName="correo" type="email"></ion-input>
         </ion-item>
+
         <ion-item>
           <ion-label position="floating">Contraseña</ion-label>
           <ion-input formControlName="contraseña" type="password"></ion-input>
         </ion-item>
-      </form>
-      <!-- Utiliza una lista no ordenada (<ul>) para los enlaces y aplica estilos CSS para ocultar los puntos -->
-      <ul class="vertical-links">
-        <ion-button (click)="ingresar()">Ingresar</ion-button>
-        <li><a [routerLink]="['/forgot-password']">Recuperar contraseña</a></li>
 
+        <ion-button expand="full" (click)="ingresar()">Ingresar</ion-button>
+      </form>
+
+      <ul class="vertical-links">
+        <li><a [routerLink]="['/forgot-password']">Recuperar contraseña</a></li>
       </ul>
+
+      <ion-card *ngIf="tipoUsuario">
+        <ion-card-header>
+          <ion-card-title>Tipo de Usuario</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Tu tipo de usuario es: {{ tipoUsuario }}</p>
+          <!-- Puedes agregar más contenido aquí según el tipo de usuario -->
+        </ion-card-content>
+      </ion-card>
+
     </ion-card-content>
   </ion-card>
-
 </ion-content>
 <ion-footer>
   <!-- Puedes agregar contenido adicional en el pie de página si es necesario -->

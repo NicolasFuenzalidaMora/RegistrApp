@@ -1,7 +1,8 @@
+<!-- home-profesor.page.html -->
 <ion-card>
   <ion-card-content class="dark-bg">
     <div class="welcome-container">
-      <div class="welcome-header" [@titleAnimation]="animationState">
+      <div class="welcome-header" [@titleAnimation]>
         ¡Bienvenido, {{ nombreUsuario }}!
       </div>
 
@@ -9,9 +10,10 @@
         <ion-icon class="welcome-icon" name="school-outline"></ion-icon>
         <p class="welcome-text">Explora tu camino hacia el éxito académico.</p>
       </div>
+
       <div class="welcome-footer">
-        <ion-button expand="full" color="primary">Comenzar</ion-button>
-        <ion-button [routerLink]="['/login']">Volver</ion-button>
+        <ion-button expand="full" color="primary" (click)="comenzarClase()">Comenzar Clase</ion-button>
+        <button (click)="cerrarSesion()">Cerrar Sesión</button>
       </div>
     </div>
   </ion-card-content>

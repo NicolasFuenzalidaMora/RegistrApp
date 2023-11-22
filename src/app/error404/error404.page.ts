@@ -8,13 +8,14 @@ import { Router } from '@angular/router';
 })
 export class Error404Page implements OnInit {
 
-  constructor(private router: Router) {
-    // Redirige a la página de inicio de sesión (login) después de 5 segundos
-    setTimeout(() => {
-      this.router.navigate(['/login']);
-    }, 5000); // 5000 milisegundos (5 segundos)
-  }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    // Redirige a la página de inicio de sesión (login) después de 5 segundos
+    setTimeout(() => {
+      console.log('Redireccionando a /login');
+      this.router.navigate(['/login']);
+    }, 5000);
+    
   }
 }
