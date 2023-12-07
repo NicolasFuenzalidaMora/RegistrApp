@@ -2,7 +2,10 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { NavController } from '@ionic/angular';
+<<<<<<< HEAD
 import * as QRCode from 'qrcode';
+=======
+>>>>>>> 379f2fbcd253a2fca49aaeaac4ed5ec9e0227e11
 
 @Component({
   selector: 'app-home-profesor',
@@ -56,6 +59,7 @@ export class HomeProfesorPage implements OnInit {
     // Redirige a la página de inicio de sesión
     this.navCtrl.navigateRoot('/login');
   }
+<<<<<<< HEAD
 
   generarCodigoQR() {
     const contenidoQR = 'Informacion que quieres en el QR';
@@ -75,4 +79,6 @@ export class HomeProfesorPage implements OnInit {
       }
     );
   }
+=======
+>>>>>>> 379f2fbcd253a2fca49aaeaac4ed5ec9e0227e11
 }

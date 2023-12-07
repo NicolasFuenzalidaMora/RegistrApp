@@ -2,11 +2,16 @@
 <ion-card>
   <ion-card-content class="dark-bg">
     <div class="welcome-container">
+<<<<<<< HEAD
       <div class="welcome-header">
+=======
+      <div class="welcome-header" [@titleAnimation]>
+>>>>>>> 379f2fbcd253a2fca49aaeaac4ed5ec9e0227e11
         ¡Bienvenido, {{ nombreUsuario }}!
       </div>
 
       <div class="welcome-body">
+<<<<<<< HEAD
         <ion-icon class="welcome-icon" name="person-circle-outline"></ion-icon>
         <p class="welcome-text">Explora tu aprendizaje de manera interactiva.</p>
       </div>
@@ -21,6 +26,14 @@
         <ion-button expand="full" color="primary" (click)="toggleScanner()">
           {{ scannerEnabled ? 'Desactivar Escáner' : 'Activar Escáner' }}
         </ion-button>
+=======
+        <ion-icon class="welcome-icon" name="school-outline"></ion-icon>
+        <p class="welcome-text">Explora tu camino hacia el éxito académico.</p>
+      </div>
+
+      <div class="welcome-footer">
+        <ion-button expand="full" color="primary" (click)="comenzarActividad()">Comenzar</ion-button>
+>>>>>>> 379f2fbcd253a2fca49aaeaac4ed5ec9e0227e11
         <button (click)="cerrarSesion()">Cerrar Sesión</button>
       </div>
     </div>

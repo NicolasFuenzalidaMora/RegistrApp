@@ -28,11 +28,15 @@
     "@capacitor/keyboard": "5.0.6",
     "@capacitor/status-bar": "5.0.6",
     "@ionic/angular": "^7.0.0",
+<<<<<<< HEAD
     "@zxing/library": "^0.20.0",
     "@zxing/ngx-scanner": "^17.0.0",
     "ionicons": "^7.0.0",
     "ngx-scanner": "^0.0.0",
     "qrcode": "^1.5.3",
+=======
+    "ionicons": "^7.0.0",
+>>>>>>> 379f2fbcd253a2fca49aaeaac4ed5ec9e0227e11
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
@@ -52,7 +56,10 @@
     "@ionic/angular-toolkit": "^9.0.0",
     "@types/jasmine": "~4.3.0",
     "@types/node": "^12.11.1",
+<<<<<<< HEAD
     "@types/qrcode": "^1.5.5",
+=======
+>>>>>>> 379f2fbcd253a2fca49aaeaac4ed5ec9e0227e11
     "@typescript-eslint/eslint-plugin": "5.3.0",
     "@typescript-eslint/parser": "5.3.0",
     "eslint": "^7.26.0",

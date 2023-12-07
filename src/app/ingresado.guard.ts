@@ -8,7 +8,10 @@ export class IngresadoGuard implements CanActivate {
 
   constructor(private router: Router) {}
 
+<<<<<<< HEAD
   
+=======
+>>>>>>> 379f2fbcd253a2fca49aaeaac4ed5ec9e0227e11
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

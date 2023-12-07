@@ -15,7 +15,10 @@ const routes: Routes = [
 ];
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 379f2fbcd253a2fca49aaeaac4ed5ec9e0227e11
 @NgModule({
   imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule]
