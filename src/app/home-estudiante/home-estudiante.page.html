@@ -1,0 +1,27 @@
+<!-- home-estudiante.page.html -->
+<ion-card>
+  <ion-card-content class="dark-bg">
+    <div class="welcome-container">
+      <div class="welcome-header">
+        ¡Bienvenido, {{ nombreUsuario }}!
+      </div>
+
+      <div class="welcome-body">
+        <ion-icon class="welcome-icon" name="person-circle-outline"></ion-icon>
+        <p class="welcome-text">Explora tu aprendizaje de manera interactiva.</p>
+      </div>
+
+      <!-- Agregar el componente de escáner de código QR -->
+      <div *ngIf="scannerEnabled">
+        <zxing-scanner (scanSuccess)="handleQrCodeResult($event)"></zxing-scanner>
+      </div>
+
+      <div class="welcome-footer">
+        <ion-button expand="full" color="primary" (click)="toggleScanner()">
+          {{ scannerEnabled ? 'Desactivar Escáner' : 'Activar Escáner' }}
+        </ion-button>
+        <button (click)="cerrarSesion()">Cerrar Sesión</button>
+      </div>
+    </div>
+  </ion-card-content>
+</ion-card>

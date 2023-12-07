@@ -1,0 +1,1 @@
+sdk.dir=<C:\Users\secon\AppData\Local\Android\Sdk>
