@@ -16,3 +16,4 @@ import { HomeProfesorPage } from './home-profesor.page';
   declarations: [HomeProfesorPage]
 })
 export class HomeProfesorPageModule {}
+

@@ -11,6 +11,7 @@
         <p class="welcome-text">Explora tu aprendizaje de manera interactiva.</p>
       </div>
 
+
       <!-- Agregar el componente de escáner de código QR -->
       <div *ngIf="scannerEnabled">
         <zxing-scanner (scanSuccess)="handleQrCodeResult($event)"></zxing-scanner>

@@ -18,6 +18,7 @@ export class HomeEstudiantePage implements OnInit {
     this.inicializarNombreUsuario();
   }
 
+  
   inicializarNombreUsuario() {
     // Recupera el nombre del usuario del almacenamiento local
     const nombreUsuarioGuardado = localStorage.getItem('nombreUsuario');

@@ -7,6 +7,7 @@ import { NavController } from '@ionic/angular';
 })
 export class NoIngresadoGuard implements CanActivate {
 
+  
   constructor(public navCtrl: NavController) {}
 
   async canActivate(
